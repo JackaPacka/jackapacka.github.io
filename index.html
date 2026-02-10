@@ -8,44 +8,31 @@
 
     <style>
         :root{
-            --x: 50vw;
-            --y: 50vh;
-            --r: 200px;     /* radius of lit area */
-            --fade: 100px;   /* softness of edge */
-            --dim: 0.1;    /* darkness outside */
+            --flashlight-position-x: 50vw;
+            --flashlight-position-y: 50vh;
+            --flashlight-radius:     100px;
+            --flashlight-fade:       250px;
+            --flashlight-dim:        0.25;
         }
 
-        /* demo content */
-        .wrap{
-            margin: 0;
-            padding: 0;
-        }
-
-        /* The overlay that dims everything except around the cursor */
-        .flashlight{
+        .flashlight-element {
             position: fixed;
             inset: 0;
             pointer-events: none;
-            /* dim layer */
-            background: rgba(0,0,0,var(--dim));
-            -webkit-mask-image: radial-gradient(
-                    circle at var(--x) var(--y),
-                    transparent 0,
-                    transparent var(--r),
-                    rgba(0,0,0,1) calc(var(--r) + var(--fade))
-            );
+            z-index: 9999;
+            background: rgba(0,0,0,var(--flashlight-dim));
             mask-image: radial-gradient(
-                    circle at var(--x) var(--y),
-                    transparent 0,
-                    transparent var(--r),
-                    rgba(0,0,0,1) calc(var(--r) + var(--fade))
+                circle at var(--flashlight-position-x) var(--flashlight-position-y),
+                rgba(255,255,255,0) 0,
+                rgba(255,255,255,0) var(--flashlight-radius),
+                rgba(0,0,0,1) calc(var(--flashlight-radius) + var(--flashlight-fade))
             );
-        }
-
-        /* Optional: smooth movement */
-        .smooth{
-            transition: -webkit-mask-position 0.05s linear;
-            transition: mask-position 0.05s linear;
+            -webkit-mask-image: radial-gradient(
+                circle at var(--flashlight-position-x) var(--flashlight-position-y),
+                rgba(255,255,255,0) 0,
+                rgba(255,255,255,0) var(--flashlight-radius),
+                rgba(0,0,0,1) calc(var(--flashlight-radius) + var(--flashlight-fade))
+            );
         }
     </style>
 
@@ -53,22 +40,21 @@
         document.addEventListener("DOMContentLoaded", () => {
             const root = document.documentElement;
             window.addEventListener("pointermove", (e) => {
-                root.style.setProperty("--x", e.clientX + "px");
-                root.style.setProperty("--y", e.clientY + "px");
+                root.style.setProperty("--flashlight-position-x", e.clientX + "px");
+                root.style.setProperty("--flashlight-position-y", e.clientY + "px");
             }, { passive: true });
         });
     </script>
 </head>
 <body>
-    <div class="wrap">
+    <div class="flashlight-wrap">
+        <div class="flashlight-element"></div>
 
 
         <nav>
-            <p>Jack Randolph</p>
+            <h2>J.R</h2>
             <a href="contact.html">Contact</a>
         </nav>
-
-
 
 
         <header>
@@ -84,7 +70,6 @@
         </header>
 
 
-
         <section>
             <h2>Education</h2>
             <dl>
@@ -94,6 +79,8 @@
                 <dd>December 2026</dd>
             </dl>
         </section>
+
+
         <section>
             <h2>Honors and Awards</h2>
             <dl>
@@ -101,6 +88,8 @@
                 <dd>2022</dd>
             </dl>
         </section>
+
+
         <section>
             <h2>Skills</h2>
             <ul>
@@ -110,6 +99,8 @@
                 <li>AWS Lambda, AWS API Gateway, AWS DynamoDB, AWS S3, AWS Amplify</li>
             </ul>
         </section>
+
+
         <section>
             <h2>Experience</h2>
             <dl>
@@ -120,6 +111,8 @@
                 <dd>December 2023 - Present</dd>
             </dl>
         </section>
+
+
         <section>
             <h2>Projects</h2>
             <div class="three-col">
@@ -149,12 +142,12 @@
                 </div>
             </div>
         </section>
+
+
         <footer>
             &copy; <a href="contact.html">Jack Randolph</a>
             <a href="https://www.linkedin.com/in/jackrandolph04/">LinkedIn</a>
         </footer>
-
-        <div class="flashlight"></div>
     </div>
 </body>
 </html>
