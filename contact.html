@@ -5,25 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Jack Randolph</title>
+    <style>
+        :root{
+            --flashlight-position-x: 50vw;
+            --flashlight-position-y: 50vh;
+            --flashlight-radius:     100px;
+            --flashlight-fade:       250px;
+            --flashlight-dim:        0.125;
+        }
+
+        .flashlight-element {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            background: rgba(0,0,0,var(--flashlight-dim));
+            mask-image: radial-gradient(
+                    circle at var(--flashlight-position-x) var(--flashlight-position-y),
+                    rgba(255,255,255,0) 0,
+                    rgba(255,255,255,0) var(--flashlight-radius),
+                    rgba(0,0,0,1) calc(var(--flashlight-radius) + var(--flashlight-fade))
+            );
+            -webkit-mask-image: radial-gradient(
+                    circle at var(--flashlight-position-x) var(--flashlight-position-y),
+                    rgba(255,255,255,0) 0,
+                    rgba(255,255,255,0) var(--flashlight-radius),
+                    rgba(0,0,0,1) calc(var(--flashlight-radius) + var(--flashlight-fade))
+            );
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const root = document.documentElement;
+            window.addEventListener("pointermove", (e) => {
+                root.style.setProperty("--flashlight-position-x", e.clientX + "px");
+                root.style.setProperty("--flashlight-position-y", e.clientY + "px");
+            }, { passive: true });
+        });
+    </script>
 </head>
 <body>
-<nav>
-    <p>Jack Randolph</p>
-    <a href="index.html">About</a>
-</nav>
-<header>
-    <h1>Jack Randolph</h1>
-    <p>
-        123 Location St. Somewhere, GA 12345
-        &square;
-        (770) 910-4216
-        &square;
-        jackdrandolph@gmail.com
-    </p>
-</header>
-<hr/>
-<section>
-    <form 
+    <div class="flashlight-element"></div>
+
+    <nav>
+        <h2>J.R</h2>
+        <a href="index.html">About</a>
+    </nav>
+    <header>
+        <h1>Jack Randolph</h1>
+        <hr/>
+        <div class="address-bar">
+            <div class="address-bar-item">
+                <span class="icon location-icon"></span>
+                <p>123 Place St. Athens, GA 12345</p>
+            </div>
+            <div class="address-bar-item">
+                <span class="icon phone-icon"></span>
+                <p>(770) 910-4216</p>
+            </div>
+            <div class="address-bar-item">
+                <span class="icon email-icon"></span>
+                <p>jackdrandolph@gmail.com</p>
+            </div>
+        </div>
+    </header>
+    <form
         method="post"
         action="https://formsubmit.co/jack-uga-csci4300-project-1"
         class="one-col"
@@ -36,10 +82,9 @@
         <textarea name="message" id="message"></textarea>
         <input type="submit" value="Send" />
     </form>
-</section>
-<footer>
-    &copy; <a href="index.html">Jack Randolph</a>
-    <a href="https://www.linkedin.com/in/jackrandolph04/">LinkedIn</a>
-</footer>
+    <footer>
+        &copy; <a href="index.html">Jack Randolph</a>
+        <a href="https://www.linkedin.com/in/jackrandolph04/">LinkedIn</a>
+    </footer>
 </body>
 </html>
