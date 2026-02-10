@@ -15,14 +15,14 @@
 }
 
 :root {
-    /* Primary color */
-    --primary-color-lightest: #3fe0ff;
-    --primary-color-lighter:  #1bbcff;
-    --primary-color-light:    #058bff;
-    --primary-color:          #036bfc;
-    --primary-color-dark:     #024fc2;
-    --primary-color-darker:   #012f7a;
-    --primary-color-darkest:  #011733;
+    /* Primary (teal) */
+    --primary-color-lightest: #e6f7f6;
+    --primary-color-lighter:  #c9efec;
+    --primary-color-light:    #8fded7;
+    --primary-color:          #3cc6bb;
+    --primary-color-dark:     #249f96;
+    --primary-color-darker:   #1b7a74;
+    --primary-color-darkest:  #145752;
 
     /* Secondary color */
     --secondary-color-lightest: #ff6bff;
