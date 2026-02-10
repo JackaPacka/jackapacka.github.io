@@ -12,10 +12,45 @@
     font-style: normal;
 }
 
+:root {
+    /* Primary color */
+    --primary-color-lightest: #3fe0ff;
+    --primary-color-lighter:  #1bbcff;
+    --primary-color-light:    #058bff;
+    --primary-color:          #036bfc;
+    --primary-color-dark:     #024fc2;
+    --primary-color-darker:   #012f7a;
+    --primary-color-darkest:  #011733;
+
+    /* Secondary color */
+    --secondary-color-lightest: #ff6bff;
+    --secondary-color-lighter:  #ff3df2;
+    --secondary-color-light:    #e91cff;
+    --secondary-color:          #c300ff;
+    --secondary-color-dark:     #8e00c9;
+    --secondary-color-darker:   #5a007d;
+    --secondary-color-darkest:  #2d003f;
+
+    /* Neutral color */
+    --neutral-color-ultralight: #fafbfc;
+    --neutral-color-lightest:   #cfd6e4;
+    --neutral-color-lighter:    #9aa6bf;
+    --neutral-color-light:      #6b7690;
+    --neutral-color:            #3b4356;
+    --neutral-color-dark:       #262c3a;
+    --neutral-color-darker:     #171b25;
+    --neutral-color-darkest:    #0d1017;
+
+    /* Border */
+    --border-radius: 16px;
+}
+
+/* Neon theme. Mouse is a flashlight */
+
 body {
     margin: 0;
-    background-color: #f1f5f9;
-    color: #0f172a;
+    background-color: var(--neutral-color-darker);
+    color: var(--neutral-color-ultralight);
     font-family: Rubik, sans-serif;
 }
 
@@ -27,29 +62,135 @@ p {
     margin-block: 8px 16px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /****************   Nav Section **********************/
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-    padding-inline: 24px;
-    padding-block: 16px;
+
+    padding: 16px 24px;
     gap: 16px;
 
-    color: white;
-    background-color: #1e3a8a;
-    border-bottom: 1px solid #1e40af;
+    color: var(--primary-color-lightest);
+
+
+    background: linear-gradient(to bottom, var(--neutral-color-darker), var(--neutral-color-dark));
+    border-bottom: 2px solid var(--neutral-color-light);
 }
 
 nav a {
-    color: #c7d2fe;
+    width: 65px;
+    padding: 16px 24px;
+
+    color: var(--neutral-color-ultralight);
+    background: linear-gradient(
+            to bottom,
+            var(--secondary-color-lightest),
+            var(--secondary-color)
+    );
+    border: 1px solid var(--secondary-color-darker);
+    border-radius: var(--border-radius);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.35) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.15) inset,
+        0 3px 6px rgba(0, 0, 0, 0.25);
+
+    cursor: pointer;
     text-decoration: none;
+    text-align: center;
 }
 
 nav a:hover {
     color: white;
 }
+
+
+
+
+
+/*********** Splash Page ************************/
+
+
+
+
+header {
+    padding: 48px;
+    background: var(--neutral-color-dark);
+
+
+
+
+
+
+}
+
+header .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 8px;
+
+    text-align: right;
+}
+
+header .hero h1 {
+    color: var(--primary-color-lightest);
+    font-size: 48px;
+    margin-bottom: 16px;
+    font-family: Bungee, sans-serif;
+    text-shadow: 4px 4px 0 rgba(19, 34, 80, 0.1);
+}
+
+header .hero .tagline {
+    color: #475569;
+}
+
+header .hero img {
+    margin-block: 16px;
+    border-radius: 16px;
+    border: 5px solid #1e3a8a;
+    box-shadow: 48px 18px 0 rgba(19, 34, 80, 0.1);
+
+    perspective: 200px;
+    transform: rotateX(20deg) rotateY(-20deg);
+    transform-style: preserve-3d;
+}
+
+header .address {
+    color: #475569;
+    text-align: center;
+}
+
+header hr {
+    max-width: 400px;
+    margin: 48px auto;
+    border-style: ridge;
+}
+
+
+
+
+
+
+
 
 /***********************  Footer Section   **************************/
 footer {
@@ -74,44 +215,18 @@ footer a:hover {
     color: white;
 }
 
-/*********** Splash Page ************************/
-header {    
-    padding: 48px 24px;
-    text-align: center;
-    background-color: #e0e7ff;
-}
 
-header h1 {
-    color: #1e3a8a;
-    font-size: 48px;
-    margin-bottom: 16px;
-    font-family: Bungee, sans-serif;
-}
 
-header img {
-    margin-block: 16px;
-    border-radius: 16px;
-    border: 3px solid #ffffff;
-}
-
-.address {
-    color: #475569;
-}
-
-.tagline {
-    color: #475569;
-}
 
 /************* Sections ********************/
 hr {
-    margin: 48px auto;
     max-width: 1200px;
     border: none;
-    border-top: 1px solid #cbd5e1;
+    border-top: 1px solid #1e3a8a;
 }
 
 section {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 48px auto;
     padding-inline: 16px;
 }
