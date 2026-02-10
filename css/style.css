@@ -73,20 +73,6 @@
     --shadow-3d: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.glass {
-    background: var(--glassy-background);
-    backdrop-filter: blur(var(--glassy-blur)) saturate(150%);
-    -webkit-backdrop-filter: blur(var(--glassy-blur)) saturate(150%);
-    border: var(--border-width) solid var(--glassy-border);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-3d), inset 0 var(--spacing-extra-extra-small) var(--spacing-extra-extra-small) rgba(255, 255, 255, 0.25);
-}
-
-
-
-
-
-
 * { box-sizing: border-box; }
 
 body {
@@ -119,7 +105,6 @@ p {
     padding: 0;
     font-family: Rubik, sans-serif;
 }
-
 
 /****************   Nav Section **********************/
 nav {
@@ -155,20 +140,16 @@ nav a {
     width: auto;
     min-width: 80px;
     padding: var(--spacing-medium) var(--spacing-extra-large);
-
+    
     color: var(--neutral-color-ultralight);
-    background: linear-gradient(
-            to bottom,
-            var(--secondary-color-lightest),
-            var(--secondary-color)
-    );
+    background: linear-gradient(to bottom, var(--secondary-color-lightest), var(--secondary-color));
     border: var(--border-width) solid var(--secondary-color-darker);
     border-radius: var(--border-radius);
     box-shadow:
-            0 1px 0 rgba(255, 255, 255, 0.35) inset,
-            0 -1px 0 rgba(0, 0, 0, 0.15) inset,
-            0 3px 6px rgba(0, 0, 0, 0.25);
-
+        0 1px 0 rgba(255, 255, 255, 0.35) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.15) inset,
+        0 3px 6px rgba(0, 0, 0, 0.25);
+    
     cursor: pointer;
     text-decoration: none;
     text-align: center;
@@ -180,10 +161,6 @@ nav a:hover {
     box-shadow: 0 0 20px var(--secondary-color-light), inset 0 1px 0 rgba(255, 255, 255, 0.5);
     filter: brightness(1.1);
 }
-
-
-
-
 
 /*********** Splash Page ************************/
 header {
@@ -311,9 +288,6 @@ header .address-bar .address-bar-item p {
     }
 }
 
-
-
-
 /***********************  Footer Section   **************************/
 footer {
     display: flex;
@@ -414,7 +388,7 @@ section dt {
 }
 
 section dd {
-    margin-bottom: var(--spacing-large);
+    margin: 0 0 var(--spacing-large);
     color: var(--neutral-color-lighter);
 }
 
@@ -465,7 +439,6 @@ section a:hover::after {
     width: 100%;
 }
 
-
 @media (max-width: 680px) {
     .index-content {
         padding: var(--spacing-large);
@@ -481,9 +454,6 @@ section a:hover::after {
         font-size: 1.8em;
     }
 }
-
-
-
 
 /**************   Projects   *****************/
 .three-col {
@@ -543,10 +513,6 @@ section a:hover::after {
 .card li::before {
     display: none;
 }
-
-
-
-
 
 /**************   Contact Page   *****************/
 .one-col {
@@ -628,8 +594,4 @@ input[type="submit"]:hover {
 
 input[type="submit"]:active {
     transform: translateY(1px);
-}
-
-@media (max-width: 680px) {
-
 }
