@@ -101,17 +101,17 @@
 body {
     margin: 0;
     padding: 0;
-
+    
     max-width: 100vw;
     overflow-x: hidden;
-
+    
     background-color: var(--neutral-color-darkest);
     background-image: 
+        url("./assets/binary-background.png"),
         radial-gradient(circle at 20% 30%, var(--primary-color-darkest) 0%, transparent 40%),
         radial-gradient(circle at 80% 70%, var(--secondary-color-darkest) 0%, transparent 40%),
         linear-gradient(var(--neutral-color-darkest), var(--neutral-color-darker));
-
-    background-attachment: fixed;
+    background-attachment: scroll;
     color: var(--neutral-color-ultralight);
     font-family: Rubik, sans-serif;
     line-height: 1.5;
