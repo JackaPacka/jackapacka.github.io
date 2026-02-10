@@ -458,21 +458,41 @@ section a:hover::after {
 /**************   Projects   *****************/
 .three-col {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: var(--spacing-medium);
+    -webkit-overflow-scrolling: touch;
     gap: var(--spacing-large);
 }
 
 .card {
+    flex: 0 0 calc(33.333% - var(--spacing-large) * 2 / 3);
+    scroll-snap-align: start;
+    min-width: 280px;
+
     padding: var(--spacing-extra-large);
     background: var(--glassy-background);
     backdrop-filter: blur(var(--glassy-blur));
+    -webkit-backdrop-filter: blur(var(--glassy-blur));
     border: var(--border-width) solid var(--glassy-border);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-3d);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
+}
+
+@media (max-width: 680px) {
+    .three-col {
+        flex-direction: column;
+        overflow-x: visible;
+    }
+
+    .card {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
 }
 
 .card:hover {
