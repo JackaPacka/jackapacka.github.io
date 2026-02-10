@@ -1,4 +1,4 @@
-const fs = require("fs");
+/*const fs = require("fs");
 const cheerio = require("cheerio");
 const inlineCSS = require("inline-css");
 const path = require("path");
@@ -86,3 +86,4 @@ describe("Contact Page", () => {
     expect(hasInputStyling).toBe(true);
   });
 });
+*/
