@@ -1,0 +1,14 @@
+.icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    display: inline-block;
+    background-color: currentColor;
+    -webkit-mask: var(--mask) no-repeat center / contain;
+    mask: var(--mask) no-repeat center / contain;
+    flex-shrink: 0;
+}
+
+.location-icon { --mask: url("./assets/location-icon.svg"); }
+.phone-icon { --mask: url("./assets/phone-icon.svg"); }
+.email-icon { --mask: url("./assets/email-icon.svg"); }

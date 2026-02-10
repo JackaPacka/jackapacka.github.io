@@ -5,92 +5,166 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Jack Randolph</title>
+
+    <style>
+        :root{
+            --flashlight-position-x: 50vw;
+            --flashlight-position-y: 50vh;
+            --flashlight-radius:     100px;
+            --flashlight-fade:       250px;
+            --flashlight-dim:        0.125;
+        }
+
+        .flashlight-element {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            background: rgba(0,0,0,var(--flashlight-dim));
+            mask-image: radial-gradient(
+                circle at var(--flashlight-position-x) var(--flashlight-position-y),
+                rgba(255,255,255,0) 0,
+                rgba(255,255,255,0) var(--flashlight-radius),
+                rgba(0,0,0,1) calc(var(--flashlight-radius) + var(--flashlight-fade))
+            );
+            -webkit-mask-image: radial-gradient(
+                circle at var(--flashlight-position-x) var(--flashlight-position-y),
+                rgba(255,255,255,0) 0,
+                rgba(255,255,255,0) var(--flashlight-radius),
+                rgba(0,0,0,1) calc(var(--flashlight-radius) + var(--flashlight-fade))
+            );
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const root = document.documentElement;
+            window.addEventListener("pointermove", (e) => {
+                root.style.setProperty("--flashlight-position-x", e.clientX + "px");
+                root.style.setProperty("--flashlight-position-y", e.clientY + "px");
+            }, { passive: true });
+        });
+    </script>
 </head>
 <body>
-<nav>
-    <p>Jack Randolph</p>
-    <a href="contact.html">Contact Jack Randolph</a>
-</nav>
-<header>
-    <h1>Jack Randolph</h1>
-    <img src="images/headshot.jpg" alt="Headshot of Jack Randolph" />
-    <p class="address">
-        123 Location St. Somewhere, GA 12345
-        &square;
-        (770) 910-4216
-        &square;
-        jackdrandolph@gmail.com
-    </p>
-    <p class="tagline">I'm a passionate web and .NET full stack developer.</p>
-</header>
-<hr/>
-<section>
-    <h2>Education</h2>
-    <dl>
-        <dt>University of Georgia</dt>
-        <dd>3.55</dd>
-        <dt>Bachelor of Science in Computer Science</dt>
-        <dd>December 2026</dd>
-    </dl>
-</section>
-<section>
-    <h2>Honors and Awards</h2>
-    <dl>
-        <dt>HOPE Scholarship</dt>
-        <dd>2022</dd>
-    </dl>
-</section>
-<section>
-    <h2>Skills</h2>
-    <ul>
-        <li>HTML, CSS, JavaScript</li>
-        <li>React, React Native</li>
-        <li>Python, Java, C#, C/C++, Rust</li>
-        <li>AWS Lambda, AWS API Gateway, AWS DynamoDB, AWS Amplify</li>
-    </ul>
-</section>
-<section>
-    <h2>Leadership and Experience</h2>
-    <dl>
-        <dt>
-            <a href="https://urestaurants.com/">
-                Fullstack Developer at URestaurants</a>
-        </dt>
-        <dd>December 2023 - Present</dd>
-    </dl>
-</section>
-<section>
-    <h2>Projects</h2>
-    <div class="three-col">
-        <div class="card">
-            <h3>Jungle Sequencer</h3>
-            <img src="images/proj_img1.png" alt="Screenshot of Jungle Sequencer" />
-            <ul>
-                <li>Built with .NET and Unity</li>
-                <li>Available for purchase on the Unity Asset Store</li>
-            </ul>
+    <div class="flashlight-wrap">
+        <div class="flashlight-element"></div>
+
+
+        <nav>
+            <h2>J.R</h2>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+
+        <header>
+            <div class="hero">
+                <div>
+                    <h1>Jack Randolph</h1>
+                    <p class="tagline">I'm a passionate web and .NET full stack developer.</p>
+                </div>
+                <img src="images/headshot.jpg" alt="Headshot of Jack Randolph" />
+            </div>
+            <hr/>
+
+            <div class="address-bar">
+                <div class="address-bar-item">
+                    <span class="icon location-icon"></span>
+                    <p>123 Location St. Somewhere, GA 12345</p>
+                </div>
+                <div class="address-bar-item">
+                    <span class="icon phone-icon"></span>
+                    <p>(770) 910-4216</p>
+                </div>
+                <div class="address-bar-item">
+                    <span class="icon email-icon"></span>
+                    <p>jackdrandolph@gmail.com</p>
+                </div>
+            </div>
+
+        </header>
+
+
+        <div class="sections">
+            <section>
+                <h2>Education</h2>
+                <dl>
+                    <dt>University of Georgia</dt>
+                    <dd>3.55</dd>
+                    <dt>Bachelor of Science in Computer Science</dt>
+                    <dd>December 2026</dd>
+                </dl>
+            </section>
+
+
+            <section>
+                <h2>Honors and Awards</h2>
+                <dl>
+                    <dt>HOPE Scholarship</dt>
+                    <dd>2022</dd>
+                </dl>
+            </section>
+
+
+            <section>
+                <h2>Skills</h2>
+                <ul>
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>React, React Native</li>
+                    <li>Python, Java, C#, C/C++, Rust</li>
+                    <li>AWS Lambda, AWS API Gateway, AWS DynamoDB, AWS Amplify</li>
+                </ul>
+            </section>
+
+
+            <section>
+                <h2>Experience</h2>
+                <dl>
+                    <dt>
+                        <a href="https://urestaurants.com/">
+                            Fullstack Developer at URestaurants</a>
+                    </dt>
+                    <dd>December 2023 - Present</dd>
+                </dl>
+            </section>
+
+
+            <section class="full-width">
+                <h2>Projects</h2>
+                <div class="three-col">
+                    <div class="card">
+                        <h3>Jungle Sequencer</h3>
+                        <img src="images/proj_img1.png" alt="Screenshot of Jungle Sequencer" />
+                        <ul>
+                            <li>Built with .NET and Unity</li>
+                            <li>Available for purchase on the Unity Asset Store</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Jungle Sequencer Documentation</h3>
+                        <img src="images/proj_img2.png" alt="Screenshot of Jungle Sequencer Documentation" />
+                        <ul>
+                            <li>Built in React with Docusaurus</li>
+                            <li>Deployed on AWS Amplify</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>URestaurants TeamHub Platform</h3>
+                        <img src="images/proj_img3.png" alt="Screenshot of the TeamHub Platform" />
+                        <ul>
+                            <li>Fully serverless restaurant management platform</li>
+                            <li>From scratch frontend developed with React</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
         </div>
-        <div class="card">
-            <h3>Jungle Sequencer Documentation</h3>
-            <img src="images/proj_img2.png" alt="Screenshot of Jungle Sequencer Documentation" />
-            <ul>
-                <li>Built in React with Docusaurus</li>
-                <li>Deployed on AWS Amplify</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>URestaurants TeamHub Platform</h3>
-            <img src="images/proj_img3.png" alt="Screenshot of the TeamHub Platform" />
-            <ul>
-                <li>Fully serverless restaurant management platform</li>
-                <li>From scratch frontend developed with React</li>
-            </ul>
-        </div>
+
+
+        <footer>
+            &copy; <a href="contact.html">Jack Randolph</a>
+            <a href="https://www.linkedin.com/in/jackrandolph04/">LinkedIn</a>
+        </footer>
     </div>
-</section>
-<footer>
-    &copy; <a href="contact.html">Jack Randolph</a>
-    <a href="https://www.linkedin.com/in/jackrandolph04/">LinkedIn</a>
-</footer>
 </body>
 </html>
