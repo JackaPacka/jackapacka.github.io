@@ -136,8 +136,8 @@ nav {
     justify-content: space-between;
     align-items: center;
 
-    padding: var(--spacing-medium) var(--spacing-large);
-    gap: var(--spacing-medium);
+    padding: var(--spacing-medium) var(--spacing-extra-large);
+    gap: var(--spacing-large);
 
     color: var(--primary-color-lightest);
     background: var(--glass-bg);
@@ -163,7 +163,7 @@ nav h2 {
 nav a {
     width: auto;
     min-width: 80px;
-    padding: 12px var(--spacing-large);
+    padding: var(--spacing-medium) var(--spacing-extra-large);
 
     color: var(--neutral-color-ultralight);
     background: linear-gradient(
@@ -197,12 +197,13 @@ nav a:hover {
 /*********** Splash Page ************************/
 header {
     margin-block: var(--spacing-extremely-large);
-    padding-inline: var(--spacing-large);
+    padding-inline: var(--spacing-extra-large);
 
     background: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: var(--spacing-extra-large);
 }
 
 header h1 {
@@ -222,8 +223,8 @@ header .hero {
     max-width: 800px;
 
     margin: 0 auto;
-    padding: var(--spacing-extra-extra-large);
-    gap: var(--spacing-extra-extra-large);
+    padding: var(--spacing-extra-large);
+    gap: var(--spacing-extra-large);
 
     text-align: right;
 
@@ -263,10 +264,10 @@ header .address {
 
 header .address-bar {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-content: center;
     flex-wrap: wrap;
-    gap: var(--spacing-medium);
+    gap: var(--spacing-large);
 }
 
 header .address-bar .address-bar-item {
@@ -291,18 +292,17 @@ header .address-bar .address-bar-item p {
     padding: 0;
 }
 
-
 @media (max-width: 680px) {
     header {
-        margin-top: var(--spacing-extra-extra-large);
         margin-bottom: 0;
         padding-inline: var(--spacing-large);
+        gap: var(--spacing-medium);
     }
-
+    
     header h1 {
         font-size: 2rem;
     }
-
+    
     header .hero {
         flex-direction: column;
         text-align: center;
@@ -330,12 +330,12 @@ footer {
     align-items: center;
     
     padding: var(--spacing-extra-large);
-    gap: var(--spacing-extra-large);
+    gap: var(--spacing-large);
 
     color: var(--neutral-color-lightest);
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
-    border-top: var(--border-width) solid var(--primary-color-dark);
+    border-top: var(--border-width) solid var(--primary-color);
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
     margin-top: var(--spacing-extremely-large);
 }
@@ -367,14 +367,14 @@ hr {
 
     margin: 0 auto;
     padding: var(--spacing-extra-large);
-    gap: var(--spacing-extra-large);
+    gap: var(--spacing-large);
 
     width: 100%;
     max-width: 1200px;
 }
 
 section {
-    padding: var(--spacing-large);
+    padding: var(--spacing-extra-large);
     background: rgba(255, 255, 255, 0.02);
     border-radius: var(--border-radius);
     border: var(--border-width) solid rgba(255, 255, 255, 0.05);
@@ -411,7 +411,7 @@ section dl {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: var(--spacing-small) var(--spacing-large);
-    margin-top: var(--spacing-medium);
+    margin-top: var(--spacing-large);
 }
 
 section dt {
@@ -420,19 +420,19 @@ section dt {
 }
 
 section dd {
-    margin-bottom: var(--spacing-medium);
+    margin-bottom: var(--spacing-large);
     color: var(--neutral-color-lighter);
 }
 
 section ul {
-    margin-top: var(--spacing-medium);
+    margin-top: var(--spacing-large);
     list-style: none;
     padding-left: 0;
 }
 
 section li {
-    margin-bottom: var(--spacing-medium);
-    padding-left: var(--spacing-medium);
+    margin-bottom: var(--spacing-large);
+    padding-left: var(--spacing-large);
     position: relative;
 }
 
@@ -473,7 +473,7 @@ section a:hover::after {
 
 
 @media (max-width: 680px) {
-    main {
+    .index-content {
         padding: var(--spacing-large);
         gap: var(--spacing-large);
         grid-template-columns: 1fr;
@@ -492,11 +492,11 @@ section a:hover::after {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-extra-large);
+    gap: var(--spacing-large);
 }
 
 .card {
-    padding: var(--spacing-large);
+    padding: var(--spacing-extra-large);
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
     border: var(--border-width) solid var(--glass-border);
@@ -515,14 +515,14 @@ section a:hover::after {
 
 .card img {
     width: 100%;
-    margin-block: var(--spacing-medium);
+    margin-block: var(--spacing-large);
     border-radius: var(--border-radius);
     border: var(--border-width) solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 var(--spacing-extra-small) 10px rgba(0, 0, 0, 0.3);
 }
 
 .card h3 {
-    margin-bottom: var(--spacing-medium);
+    margin-bottom: var(--spacing-large);
     color: var(--neon-primary);
     text-shadow: var(--glow-primary);
     text-align: center;
@@ -556,7 +556,7 @@ section a:hover::after {
     grid-template-columns: 1fr;
 
     margin: 0 auto;
-    padding: var(--spacing-extra-extra-large);
+    padding: var(--spacing-extra-large);
     gap: var(--spacing-medium);
 
     width: 100%;
@@ -571,13 +571,12 @@ section a:hover::after {
 
 .contact-form {
     margin: 0 auto;
-    padding: var(--spacing-large);
+    padding: var(--spacing-extra-large);
     width: 100%;
     max-width: 600px;
 }
 
 label {
-    margin-top: var(--spacing-small);
     color: var(--primary-color-lightest);
     font-weight: bold;
     font-size: 1.1rem;
@@ -591,10 +590,11 @@ textarea {
     border-radius: var(--border-radius);
     background: rgba(0, 0, 0, 0.3);
     color: var(--neutral-color-ultralight);
-    transition: all 300ms ease;
-
+    
     font-family: Rubik, sans-serif;
     font-size: 1rem;
+    
+    transition: all 300ms ease;
 }
 
 input:focus,
@@ -609,7 +609,7 @@ textarea {
 }
 
 input[type="submit"] {
-    margin-top: var(--spacing-medium);
+    margin-top: var(--spacing-large);
     padding: var(--spacing-medium);
     background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark));
     color: white;
