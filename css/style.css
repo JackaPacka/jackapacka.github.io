@@ -44,17 +44,19 @@
     --neutral-color-darkest:    #0d1017;
 
     /* Spacing */
-    --spacing-extra-extra-small: 1px;
-    --spacing-extra-small:       4px;
-    --spacing-small:             8px;
-    --spacing-medium:            16px;
-    --spacing-large:             24px;
-    --spacing-extra-large:       32px;
-    --spacing-extra-extra-large: 48px;
+    --spacing-extra-extra-small:     1px;
+    --spacing-extra-small:           4px;
+    --spacing-small:                 8px;
+    --spacing-medium:                16px;
+    --spacing-large:                 24px;
+    --spacing-extra-large:           32px;
+    --spacing-extra-extra-large:     48px;
+    --spacing-extremely-large:       64px;
+    --spacing-extra-extremely-large: 84px;
 
     /* Border */
-    --border-radius: 16px;
-    --border-width:  1px;
+    --border-radius: var(--spacing-medium);
+    --border-width:  var(--spacing-extra-extra-small);
 
 
 
@@ -62,7 +64,7 @@
 
 
 
-    /* Temp vars */
+    /* Temporary variables */
     --glass-bg: rgba(23, 27, 37, 0.7);
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-glow: rgba(63, 224, 255, 0.2);
@@ -71,15 +73,22 @@
     --glow-primary: 0 0 24px var(--primary-color-light), 0 0 64px var(--primary-color-dark);
     --glow-secondary: 0 0 24px var(--secondary-color-light), 0 0 64px var(--secondary-color-dark);
     --shadow-3d: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+
+
+
+
+
+
 }
 
 .glass {
     background: var(--glass-bg);
     backdrop-filter: blur(12px) saturate(150%);
     -webkit-backdrop-filter: blur(12px) saturate(150%);
-    border: 1px solid var(--glass-border);
+    border: var(--border-width) solid var(--glass-border);
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-3d), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-3d), inset 0 var(--spacing-extra-extra-small) var(--spacing-extra-extra-small) rgba(255, 255, 255, 0.1);
 }
 
 
@@ -127,15 +136,15 @@ nav {
     justify-content: space-between;
     align-items: center;
 
-    padding: 16px 24px;
-    gap: 16px;
+    padding: var(--spacing-medium) var(--spacing-large);
+    gap: var(--spacing-medium);
 
     color: var(--primary-color-lightest);
     background: var(--glass-bg);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--primary-color);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--glass-glow);
+    border-bottom: var(--border-width) solid var(--primary-color);
+    box-shadow: 0 var(--spacing-extra-small) 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--glass-glow);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -145,7 +154,6 @@ nav {
 
 nav h2 {
     font-family: Bungee, sans-serif;
-    letter-spacing: 1px;
     text-shadow: var(--glow-primary);
     margin: 0;
     font-size: 35px;
@@ -155,7 +163,7 @@ nav h2 {
 nav a {
     width: auto;
     min-width: 80px;
-    padding: 12px 24px;
+    padding: 12px var(--spacing-large);
 
     color: var(--neutral-color-ultralight);
     background: linear-gradient(
@@ -163,7 +171,7 @@ nav a {
             var(--secondary-color-lightest),
             var(--secondary-color)
     );
-    border: 1px solid var(--secondary-color-darker);
+    border: var(--border-width) solid var(--secondary-color-darker);
     border-radius: var(--border-radius);
     box-shadow:
             0 1px 0 rgba(255, 255, 255, 0.35) inset,
@@ -188,8 +196,8 @@ nav a:hover {
 
 /*********** Splash Page ************************/
 header {
-    margin-block: 64px;
-    padding-inline: 24px;
+    margin-block: var(--spacing-extremely-large);
+    padding-inline: var(--spacing-large);
 
     background: transparent;
     display: flex;
@@ -214,14 +222,14 @@ header .hero {
     max-width: 800px;
 
     margin: 0 auto;
-    padding: 48px;
-    gap: 48px;
+    padding: var(--spacing-extra-extra-large);
+    gap: var(--spacing-extra-extra-large);
 
     text-align: right;
 
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
+    border: var(--border-width) solid var(--glass-border);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-3d), inset 0 0 20px rgba(63, 224, 255, 0.05);
 }
@@ -232,12 +240,12 @@ header .hero .tagline {
 }
 
 header .hero img {
-    margin-block: 16px;
+    margin-block: var(--spacing-medium);
     width: 200px;
     height: 200px;
     object-fit: cover;
     border-radius: var(--border-radius);
-    border: 2px solid var(--primary-color-lightest);
+    border: var(--border-width) solid var(--primary-color-lightest);
     box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.5);
 
     perspective: 1000px;
@@ -248,7 +256,7 @@ header .hero img {
 header .address {
     color: var(--neutral-color-lighter);
     text-align: center;
-    margin-top: 32px;
+    margin-top: var(--spacing-extra-large);
     font-size: 0.9rem;
     letter-spacing: 0.5px;
 }
@@ -258,17 +266,17 @@ header .address-bar {
     justify-content: space-around;
     align-content: center;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: var(--spacing-medium);
 }
 
 header .address-bar .address-bar-item {
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 8px 16px;
+    gap: var(--spacing-medium);
+    padding: var(--spacing-small) var(--spacing-medium);
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
+    border: var(--border-width) solid var(--glass-border);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-3d);
     transition: transform 200ms ease;
@@ -286,9 +294,9 @@ header .address-bar .address-bar-item p {
 
 @media (max-width: 680px) {
     header {
-        margin-top: 48px;
+        margin-top: var(--spacing-extra-extra-large);
         margin-bottom: 0;
-        padding-inline: 24px;
+        padding-inline: var(--spacing-large);
     }
 
     header h1 {
@@ -298,8 +306,8 @@ header .address-bar .address-bar-item p {
     header .hero {
         flex-direction: column;
         text-align: center;
-        gap: 24px;
-        padding: 24px;
+        gap: var(--spacing-large);
+        padding: var(--spacing-large);
     }
 
     header .hero img {
@@ -321,15 +329,15 @@ footer {
     justify-content: center;
     align-items: center;
     
-    padding: 32px;
-    gap: 32px;
+    padding: var(--spacing-extra-large);
+    gap: var(--spacing-extra-large);
 
     color: var(--neutral-color-lightest);
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
-    border-top: 1px solid var(--primary-color-dark);
+    border-top: var(--border-width) solid var(--primary-color-dark);
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
-    margin-top: 64px;
+    margin-top: var(--spacing-extremely-large);
 }
 
 footer a {
@@ -347,9 +355,9 @@ footer a:hover {
 hr {
     width: 100%;
     max-width: 600px;
-    margin: 32px auto;
+    margin: var(--spacing-extra-large) auto;
     border: none;
-    height: 1px;
+    height: var(--border-width);
     background: linear-gradient(to right, transparent, var(--primary-color-light), transparent);
 }
 
@@ -358,18 +366,18 @@ hr {
     grid-template-columns: 1fr 1fr;
 
     margin: 0 auto;
-    padding: 32px;
-    gap: 32px;
+    padding: var(--spacing-extra-large);
+    gap: var(--spacing-extra-large);
 
     width: 100%;
     max-width: 1200px;
 }
 
 section {
-    padding: 24px;
+    padding: var(--spacing-large);
     background: rgba(255, 255, 255, 0.02);
     border-radius: var(--border-radius);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: var(--border-width) solid rgba(255, 255, 255, 0.05);
     overflow: hidden;
     transition: transform 200ms ease;
 }
@@ -387,8 +395,8 @@ section h2 {
     color: var(--neon-primary);
     text-shadow: var(--glow-primary);
     font-size: 2rem;
-    margin-bottom: 24px;
-    border-bottom: 1px solid var(--primary-color-darker);
+    margin-bottom: var(--spacing-large);
+    border-bottom: var(--border-width) solid var(--primary-color-darker);
     display: inline-block;
 }
 
@@ -396,14 +404,14 @@ section h3 {
     font-family: Bungee, sans-serif;
     color: var(--neon-secondary);
     text-shadow: var(--glow-secondary);
-    margin-top: 24px;
+    margin-top: var(--spacing-large);
 }
 
 section dl {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 8px 24px;
-    margin-top: 12px;
+    gap: var(--spacing-small) var(--spacing-large);
+    margin-top: var(--spacing-medium);
 }
 
 section dt {
@@ -412,19 +420,19 @@ section dt {
 }
 
 section dd {
-    margin-bottom: 12px;
+    margin-bottom: var(--spacing-medium);
     color: var(--neutral-color-lighter);
 }
 
 section ul {
-    margin-top: 12px;
+    margin-top: var(--spacing-medium);
     list-style: none;
     padding-left: 0;
 }
 
 section li {
-    margin-bottom: 12px;
-    padding-left: 20px;
+    margin-bottom: var(--spacing-medium);
+    padding-left: var(--spacing-medium);
     position: relative;
 }
 
@@ -449,14 +457,14 @@ section a::after {
     bottom: -2px;
     left: 0;
     width: 0;
-    height: 1px;
+    height: var(--border-width);
     background: var(--primary-color-lightest);
-    box-shadow: 0 0 8px var(--primary-color-lightest);
+    box-shadow: 0 0 var(--spacing-small) var(--primary-color-lightest);
     transition: width 0.3s ease;
 }
 
 section a:hover {
-    text-shadow: 0 0 8px var(--primary-color-lightest);
+    text-shadow: 0 0 var(--spacing-small) var(--primary-color-lightest);
 }
 
 section a:hover::after {
@@ -466,8 +474,8 @@ section a:hover::after {
 
 @media (max-width: 680px) {
     main {
-        padding: 24px;
-        gap: 24px;
+        padding: var(--spacing-large);
+        gap: var(--spacing-large);
         grid-template-columns: 1fr;
     }
 
@@ -484,14 +492,14 @@ section a:hover::after {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+    gap: var(--spacing-extra-large);
 }
 
 .card {
-    padding: 24px;
+    padding: var(--spacing-large);
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
+    border: var(--border-width) solid var(--glass-border);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-3d);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -507,14 +515,14 @@ section a:hover::after {
 
 .card img {
     width: 100%;
-    margin-block: 12px;
+    margin-block: var(--spacing-medium);
     border-radius: var(--border-radius);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: var(--border-width) solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 var(--spacing-extra-small) 10px rgba(0, 0, 0, 0.3);
 }
 
 .card h3 {
-    margin-bottom: 16px;
+    margin-bottom: var(--spacing-medium);
     color: var(--neon-primary);
     text-shadow: var(--glow-primary);
     text-align: center;
@@ -530,7 +538,7 @@ section a:hover::after {
 .card li {
     font-size: 0.9rem;
     color: var(--neutral-color-lightest);
-    margin-bottom: 8px;
+    margin-bottom: var(--spacing-small);
     text-align: center;
 }
 
@@ -548,28 +556,28 @@ section a:hover::after {
     grid-template-columns: 1fr;
 
     margin: 0 auto;
-    padding: 48px;
-    gap: 16px;
+    padding: var(--spacing-extra-extra-large);
+    gap: var(--spacing-medium);
 
     width: 100%;
     max-width: 600px;
 
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
+    border: var(--border-width) solid var(--glass-border);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-3d);
 }
 
 .contact-form {
     margin: 0 auto;
-    padding: 24px;
+    padding: var(--spacing-large);
     width: 100%;
     max-width: 600px;
 }
 
 label {
-    margin-top: 8px;
+    margin-top: var(--spacing-small);
     color: var(--primary-color-lightest);
     font-weight: bold;
     font-size: 1.1rem;
@@ -578,8 +586,8 @@ label {
 input[type="text"],
 input[type="email"],
 textarea {
-    padding: 16px;
-    border: 1px solid var(--neutral-color-light);
+    padding: var(--spacing-medium);
+    border: var(--border-width) solid var(--neutral-color-light);
     border-radius: var(--border-radius);
     background: rgba(0, 0, 0, 0.3);
     color: var(--neutral-color-ultralight);
@@ -601,11 +609,11 @@ textarea {
 }
 
 input[type="submit"] {
-    margin-top: 16px;
-    padding: 16px;
+    margin-top: var(--spacing-medium);
+    padding: var(--spacing-medium);
     background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark));
     color: white;
-    border: 1px solid var(--primary-color-lightest);
+    border: var(--border-width) solid var(--primary-color-lightest);
     border-radius: var(--border-radius);
     cursor: pointer;
     font-family: Rubik, sans-serif;
