@@ -411,7 +411,7 @@ section dl {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: var(--spacing-small) var(--spacing-large);
-    margin-top: var(--spacing-large);
+    margin: var(--spacing-large) 0 0;
 }
 
 section dt {
@@ -425,9 +425,9 @@ section dd {
 }
 
 section ul {
-    margin-top: var(--spacing-large);
-    list-style: none;
+    margin: var(--spacing-large) 0 0;
     padding-left: 0;
+    list-style: none;
 }
 
 section li {
@@ -481,6 +481,10 @@ section a:hover::after {
 
     section.full-width {
         grid-column: span 1;
+    }
+    
+    section h2 {
+        font-size: 1.8em;
     }
 }
 
