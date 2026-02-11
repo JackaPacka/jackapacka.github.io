@@ -15,11 +15,11 @@
 }
 
 :root {
-    /* Primary (teal) */
+    /* Primary color */
     --primary-color-lightest: #e6f7f6;
     --primary-color-lighter:  #c9efec;
     --primary-color-light:    #8fded7;
-    --primary-color:          #3cc6bb;
+    --primary-color-base:     #3cc6bb;
     --primary-color-dark:     #249f96;
     --primary-color-darker:   #1b7a74;
     --primary-color-darkest:  #145752;
@@ -28,7 +28,7 @@
     --secondary-color-lightest: #ff6bff;
     --secondary-color-lighter:  #ff3df2;
     --secondary-color-light:    #e91cff;
-    --secondary-color:          #c300ff;
+    --secondary-color-base:     #c300ff;
     --secondary-color-dark:     #8e00c9;
     --secondary-color-darker:   #5a007d;
     --secondary-color-darkest:  #2d003f;
@@ -38,7 +38,7 @@
     --neutral-color-lightest:   #cfd6e4;
     --neutral-color-lighter:    #9aa6bf;
     --neutral-color-light:      #6b7690;
-    --neutral-color:            #3b4356;
+    --neutral-color-base:       #3b4356;
     --neutral-color-dark:       #262c3a;
     --neutral-color-darker:     #171b25;
     --neutral-color-darkest:    #0d1017;
@@ -119,7 +119,7 @@ nav {
     background: var(--glassy-background);
     backdrop-filter: blur(var(--glassy-blur));
     -webkit-backdrop-filter: blur(var(--glassy-blur));
-    border-bottom: var(--border-width) solid var(--primary-color);
+    border-bottom: var(--border-width) solid var(--primary-color-base);
     box-shadow: 0 var(--spacing-extra-small) 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--glassy-glow);
     position: sticky;
     top: 0;
@@ -142,7 +142,7 @@ nav a {
     padding: var(--spacing-medium) var(--spacing-extra-large);
     
     color: var(--neutral-color-ultralight);
-    background: linear-gradient(to bottom, var(--secondary-color-lightest), var(--secondary-color));
+    background: linear-gradient(to bottom, var(--secondary-color-lightest), var(--secondary-color-base));
     border: var(--border-width) solid var(--secondary-color-darker);
     border-radius: var(--border-radius);
     box-shadow:
@@ -301,7 +301,7 @@ footer {
     background: var(--glassy-background);
     backdrop-filter: blur(var(--glassy-blur));
     -webkit-backdrop-filter: blur(var(--glassy-blur));
-    border-top: var(--border-width) solid var(--primary-color);
+    border-top: var(--border-width) solid var(--primary-color-base);
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
     margin-top: var(--spacing-extremely-large);
 }
@@ -577,7 +577,7 @@ input[type="submit"] {
     padding: var(--spacing-medium);
     
     color: var(--neutral-color-ultralight);
-    background: linear-gradient(to bottom, var(--secondary-color-lightest), var(--secondary-color));
+    background: linear-gradient(to bottom, var(--secondary-color-lightest), var(--secondary-color-base));
     border: var(--border-width) solid var(--secondary-color-darker);
     border-radius: var(--border-radius);
     box-shadow:
