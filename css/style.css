@@ -367,8 +367,6 @@ section h3 {
 }
 
 section dl {
-    display: grid;
-    grid-template-columns: auto 1fr;
     gap: var(--spacing-small) var(--spacing-large);
     margin: var(--spacing-large) 0 0;
 }
@@ -457,14 +455,13 @@ section a:hover::after {
     flex: 0 0 calc(33.333% - var(--spacing-large) * 2 / 3);
     scroll-snap-align: start;
     min-width: 280px;
-
+    
     padding: var(--spacing-extra-large);
     background: var(--glassy-background);
     backdrop-filter: blur(var(--glassy-blur));
     -webkit-backdrop-filter: blur(var(--glassy-blur));
     border: var(--border-width) solid var(--glassy-border);
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-3d);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
@@ -482,8 +479,10 @@ section a:hover::after {
     }
 }
 
-.card img {
+.card img,
+.card iframe {
     width: 100%;
+    aspect-ratio: 16 / 9;
     margin-block: var(--spacing-large);
     border-radius: var(--border-radius);
     border: var(--border-width) solid rgba(255, 255, 255, 0.1);
